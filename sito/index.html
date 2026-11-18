@@ -77,15 +77,20 @@ nav ul a{text-decoration:none;opacity:.8}nav ul a:hover{opacity:1}
 .job span{opacity:.55;font-size:.82rem}
 .job.on{background:var(--tf);color:#06292a;font-weight:600;animation:in .6s}
 .cap{margin-top:1.4rem;font-size:.9rem;color:var(--silver)}
-.bom{max-width:1000px;margin:6rem auto 0;padding:0;text-align:left}
-.bom h3.mono{color:var(--silver);padding-bottom:1rem;font-family:var(--mono);font-size:.78rem}
-.bom li{list-style:none;display:grid;grid-template-columns:4rem 1fr 1.2fr;gap:1rem 2rem;align-items:baseline;padding:1.7rem .6rem;border-top:1px solid #ffffff26;transition:background .3s}
-.bom li:last-child{border-bottom:1px solid #ffffff26}
-.bom li:hover{background:#ffffff0a}
-.bom li:hover h3{transform:translateX(10px);color:var(--tf)}
-.bom b{color:var(--tf2)}
-.bom h3{font-size:clamp(1.6rem,3vw,2.3rem);transition:.3s}
-.bom p{color:var(--silver)}
+.prs{height:560vh;padding:0}
+.pst{position:sticky;top:0;height:100svh;display:grid;grid-template-rows:auto 1fr auto;justify-items:center;align-items:center;overflow:hidden;padding:5.5rem 1.25rem 2rem;background:radial-gradient(ellipse at 50% 58%,rgba(10,186,181,.24),transparent 62%),var(--g8)}
+.pt{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.pt h2{font-size:clamp(1.7rem,3.2vw,2.5rem);margin:0;max-width:none}.pt .mono{color:var(--tf)}
+.stage{perspective:1500px;width:100%;height:100%;display:grid;place-items:center}
+.prism{--w:min(460px,76vw);--r:calc(var(--w)*.866);position:relative;width:var(--w);height:min(320px,48svh);transform-style:preserve-3d;will-change:transform}
+.pf{position:absolute;inset:0;padding:2rem;display:flex;flex-direction:column;justify-content:flex-end;gap:.5rem;border-radius:18px;text-align:left;background:linear-gradient(160deg,#2c353a,#15191b);box-shadow:inset 0 0 0 1px #ffffff30;backface-visibility:hidden;transform:rotateY(calc(var(--i)*60deg)) translateZ(calc(var(--r)*var(--k,1)));transition:filter .4s,box-shadow .4s}
+.pf::before,.pf::after{content:"";position:absolute;top:16px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffffff66,#ffffff1a 60%,transparent 62%);box-shadow:inset 0 0 0 1px #ffffff40}
+.pf::before{left:16px}.pf::after{right:16px}
+.pf:not(.on){filter:brightness(.5)}
+.pf.on{box-shadow:inset 0 0 0 2px var(--tf),0 0 90px rgba(10,186,181,.4)}
+.pf b{color:var(--tf);font-size:.95rem}.pf h3{font-size:clamp(1.6rem,3vw,2.3rem)}.pf p{color:var(--silver);font-size:.98rem}
+.core{position:absolute;left:50%;top:-10%;height:120%;width:3px;margin-left:-1.5px;background:linear-gradient(transparent,var(--tf),transparent);box-shadow:0 0 40px 10px rgba(10,186,181,.5)}
+.tk{display:flex;gap:.5rem}.tk i{width:34px;height:4px;border-radius:2px;background:#ffffff30;transition:background .3s}.tk i.on{background:var(--tf)}.tk i.dn{background:#ffffff80}
 .ex{height:340vh;padding:0;background:var(--g9)}
 .stick{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:1fr 1.25fr;align-items:center;gap:2rem;padding:0 max(1.25rem,calc((100vw - 1100px)/2));overflow:hidden;text-align:left;background:var(--grid);background-size:56px 56px}
 .stick h2{margin:0 0 2rem;max-width:11ch;text-align:left}
@@ -130,20 +135,20 @@ footer{background:var(--g9);color:var(--silver);padding:2.5rem 0;font-size:.82re
 footer .wrap{display:flex;flex-wrap:wrap;gap:1.2rem 3rem;align-items:center;justify-content:space-between}
 footer p{max-width:34rem}
 footer .logo{color:var(--mist)}
-@media(min-width:821px) and (prefers-reduced-motion:no-preference){
+@media all{
 .hero{height:230vh}
 .hstick{position:sticky;top:0;height:100svh}
 .hstick>.scene{position:absolute;left:50%;top:50%;margin:0;width:min(920px,86vw);transform:translate(-50%,-50%) translateY(52vh)}
 .hstick>.fin{position:absolute;inset:auto 0 0;margin:0;padding:7rem 1.25rem 2.5rem;background:linear-gradient(transparent,rgba(17,19,21,.9));opacity:0;z-index:5}
 }
-@media(max-width:820px){nav ul{display:none}nav .in{justify-content:center}.vs,.team,.cols{grid-template-columns:1fr}.person{flex-direction:column;text-align:center}.lnk{display:block;margin:1.2rem 0 0}.bom li{grid-template-columns:2.5rem 1fr}.bom li p{grid-column:2}.stick{grid-template-columns:1fr;grid-template-rows:44svh auto;align-content:end;padding-top:48px;padding-bottom:2rem;gap:0}.exs{order:-1}.grp{width:58vw}.stick h2{font-size:2rem;margin-bottom:.6rem}.exl li{padding:.5rem 0}.exl li span{display:none}.exl li.on span{display:block}.c1{left:0}.c2{right:0}}
+@media(max-width:820px){nav ul{display:none}nav .in{justify-content:center}.vs,.team,.cols{grid-template-columns:1fr}.person{flex-direction:column;text-align:center}.lnk{display:block;margin:1.2rem 0 0}.stick{grid-template-columns:1fr;grid-template-rows:44svh auto;align-content:end;padding-top:48px;padding-bottom:2rem;gap:0}.exs{order:-1}.grp{width:58vw}.stick h2{font-size:2rem;margin-bottom:.6rem}.exl li{padding:.5rem 0}.exl li span{display:none}.exl li.on span{display:block}.c1{left:0}.c2{right:0}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
 <nav><div class="in">
 <a href="#" class="logo"><img src="img/logo-ops-light.png" alt="OPS"></a>
-<ul><li><a href="#problema">Il problema</a></li><li><a href="#risultato">Il risultato</a></li><li><a href="#esploso">Il viaggio</a></li><li><a href="#mgo">M.G.O.</a></li><li><a href="#team">Chi siamo</a></li></ul>
+<ul><li><a href="#problema">Il problema</a></li><li><a href="#risultato">Il risultato</a></li><li><a href="#funzioni">Funzioni</a></li><li><a href="#esploso">Il viaggio</a></li><li><a href="#mgo">M.G.O.</a></li><li><a href="#team">Chi siamo</a></li></ul>
 </div></nav>
 
 <header class="hero"><div class="hstick">
@@ -183,15 +188,12 @@ footer .logo{color:var(--mist)}
 <div class="cols" id="cols"></div>
 </div>
 <p class="cap">Esempio dimostrativo con ordini di fantasia: lo schermo vero si aggiorna da solo, proprio come questo.</p>
-<ol class="bom rv">
-<h3 class="mono">Distinta delle funzioni</h3>
-<li><b class="mono">01</b><h3>Ordini che arrivano da soli</h3><p>Ogni ordine del gestionale viene importato in pochi minuti, senza doppioni e senza ricopiare nulla.</p></li>
-<li><b class="mono">02</b><h3>Pianificazione a trascinamento</h3><p>Una colonna per macchina: l’ufficio sposta gli ordini e sceglie data, turno e durata.</p></li>
-<li><b class="mono">03</b><h3>Dati tecnici correggibili</h3><p>Materiale, quantità e note arrivano già compilati. Se l’ufficio li corregge, la correzione resta.</p></li>
-<li><b class="mono">04</b><h3>Schermo in officina</h3><p>Per ogni macchina, i lavori in ordine di esecuzione, con testo grande e leggibile da lontano.</p></li>
-<li><b class="mono">05</b><h3>Magazzino a portata di mano</h3><p>Materiali e utensili con giacenza, soglia minima e storico dei movimenti.</p></li>
-<li><b class="mono">06</b><h3>Elenco di emergenza</h3><p>Se il sistema non è disponibile, l’elenco degli ordini si stampa e l’officina non si ferma.</p></li>
-</ol>
+</div></section>
+
+<section class="prs" id="funzioni"><div class="pst">
+<div class="pt"><h2>Distinta delle funzioni</h2><span class="mono" id="cnt">01 / 06</span></div>
+<div class="stage"><div class="prism" id="prism"><i class="core"></i><article class="pf" style="--i:0"><b class="mono">01</b><h3>Ordini che arrivano da soli</h3><p>Ogni ordine del gestionale viene importato in pochi minuti, senza doppioni e senza ricopiare nulla.</p></article><article class="pf" style="--i:1"><b class="mono">02</b><h3>Pianificazione a trascinamento</h3><p>Una colonna per macchina: l’ufficio sposta gli ordini e sceglie data, turno e durata.</p></article><article class="pf" style="--i:2"><b class="mono">03</b><h3>Dati tecnici correggibili</h3><p>Materiale, quantità e note arrivano già compilati. Se l’ufficio li corregge, la correzione resta.</p></article><article class="pf" style="--i:3"><b class="mono">04</b><h3>Schermo in officina</h3><p>Per ogni macchina, i lavori in ordine di esecuzione, con testo grande e leggibile da lontano.</p></article><article class="pf" style="--i:4"><b class="mono">05</b><h3>Magazzino a portata di mano</h3><p>Materiali e utensili con giacenza, soglia minima e storico dei movimenti.</p></article><article class="pf" style="--i:5"><b class="mono">06</b><h3>Elenco di emergenza</h3><p>Se il sistema non è disponibile, l’elenco degli ordini si stampa e l’officina non si ferma.</p></article></div></div>
+<div class="tk"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 </div></section>
 
 <section class="ex" id="esploso"><div class="stick">
@@ -259,31 +261,38 @@ if(!rm){setInterval(tick,1000);setInterval(()=>{const i=Math.random()*3|0;q[i].s
 
 // Effetti 3D legati a mouse e scorrimento
 const sc=$('#scene'),rig=$('#rig'),tv=$('#tv'),ex=$('#esploso'),grp=$('.grp'),pl=$$('.plane'),li=$$('.exl li'),band=$('#mgo'),sp=$$('.sp'),K=[-170,110,-120];
-const hero=$('.hero'),ht=$('.ht'),fin=$('.fin'),vid=$('#vid'),ch=$$('.chip'),W=[[-.2,.38],[.32,.72],[.66,1.2]];
-const mqD=matchMedia('(min-width:821px) and (prefers-reduced-motion:no-preference)');
+const prs=$('.prs'),prism=$('#prism'),pf=$$('.pf'),tk=$$('.tk i'),cnt=$('#cnt'),hero=$('.hero'),ht=$('.ht'),fin=$('.fin'),vid=$('#vid'),ch=$$('.chip'),W=[[-.2,.38],[.32,.72],[.66,1.2]];
 // il video parte solo se serve: si ferma fuori schermo e con "riduci movimento"
 if(rm){vid.pause();vid.removeAttribute('autoplay')}
 else new IntersectionObserver(([x])=>x.isIntersecting?vid.play().catch(()=>{}):vid.pause()).observe(hero);
-let tx=0,ty=0,cx=0,cy=0;
+let tx=0,ty=0,cx=0,cy=0,qx=0,qy=0,mx=0,my=0;
+$('.pst').addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2});
 sc.addEventListener('pointermove',e=>{const b=sc.getBoundingClientRect();tx=((e.clientX-b.left)/b.width-.5)*2;ty=((e.clientY-b.top)/b.height-.5)*2});
 sc.addEventListener('pointerleave',()=>{tx=ty=0});
 function frame(){
  const t=performance.now()/1000;cx+=(tx-cx)*.07;cy+=(ty-cy)*.07;
  const sw=rm?0:1;let e=0;
  // apertura: la scheda si raddrizza e si ingrandisce fino a riempire lo schermo
- if(mqD.matches){
+ {
   const r=hero.getBoundingClientRect();e=clamp(clamp(-r.top/(hero.offsetHeight-innerHeight))/.7);
   const cw=sc.offsetWidth,S=Math.max(innerWidth/cw,innerHeight/(cw*9/16))*1.01;
-  sc.style.transform=`translate(-50%,-50%) translateY(${(1-e)*innerHeight*.52}px) scale(${1+e*(S-1)})`;
+  sc.style.transform=`translate(-50%,-50%) translateY(${(1-e)*innerHeight*(innerWidth<821?.3:.52)}px) scale(${1+e*(S-1)})`;
   ht.style.transform=`translateY(${-e*140}px)`;ht.style.opacity=clamp(1-e*2.4);ht.style.pointerEvents=e>.4?'none':'';
   fin.style.opacity=clamp((e-.85)/.15)
- }else{sc.style.transform=ht.style.transform=ht.style.opacity=ht.style.pointerEvents=fin.style.opacity=''}
- sc.style.setProperty('--e',e);
- const k=1-e;
+ }
+ sc.style.setProperty('--e',rm?0:e);
+ const k=rm?0:1-e;
  rig.style.transform=`rotateX(${(16-cy*8+Math.sin(t*.8)*2*sw)*k}deg) rotateY(${(-18+cx*14+Math.cos(t*.6)*3*sw)*k}deg)`;
  // etichette che seguono il video: ordine, macchina in lavorazione, aggiornamento
  const ph=vid.duration&&!vid.paused?vid.currentTime/vid.duration:-1;
  ch.forEach((c,i)=>{const w=ph<0?1:clamp(Math.min((ph-W[i][0])/.07,(W[i][1]-ph)/.07));c.style.opacity=w*clamp(1-e*1.5)});
+ // distinta: prisma esagonale che ruota, si apre e si richiude a ogni funzione
+ qx+=(mx-qx)*.06;qy+=(my-qy)*.06;
+ const rp=prs.getBoundingClientRect();{const pp=clamp(-rp.top/(rp.height-innerHeight)),xx=pp*5.999,fi=Math.floor(xx),u=clamp((xx-fi-.3)/.7),su=u*u*(3-2*u),ang=(fi+su)*60,act=Math.min(5,Math.round(fi+su));
+ prism.style.setProperty('--k',1+(rm?0:.45*Math.sin(Math.PI*su)));
+ prism.style.transform=`translateZ(${-prism.offsetWidth*.866}px) rotateX(${-6+(rm?0:qy*4)}deg) rotateY(${-ang+(rm?0:qx*9)}deg)`;
+ pf.forEach((x,i)=>x.classList.toggle('on',i==act));tk.forEach((x,i)=>{x.classList.toggle('on',i==act);x.classList.toggle('dn',i<act)});
+ cnt.textContent='0'+(act+1)+' / 06'}
  // schermo TV che si raddrizza
  let r=tv.getBoundingClientRect(),a=clamp((r.top-innerHeight*.2)/(innerHeight*.6));
  tv.style.transform=`perspective(1400px) rotateX(${a*32}deg) scale(${1-a*.08})`;
