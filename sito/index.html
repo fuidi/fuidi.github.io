@@ -41,24 +41,26 @@ nav ul a{text-decoration:none;opacity:.8}nav ul a:hover{opacity:1}
 .btn:hover{background:#a4e8e2}
 .lnk{color:var(--tf);text-decoration:none;font-size:1.2rem;margin-left:1.6rem}
 .lnk:hover{text-decoration:underline}
-.hero{position:relative;padding:6.5rem 1.25rem 3rem;text-align:center;background:radial-gradient(ellipse at 50% -5%,rgba(10,186,181,.3),transparent 60%),var(--g8);overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:var(--grid);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 35%,#000 25%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 35%,#000 25%,transparent 72%)}
-.hero>*{position:relative}
+.hero{text-align:center}
+.hstick{position:relative;padding:6.5rem 1.25rem 3rem;background:radial-gradient(ellipse at 50% -5%,rgba(10,186,181,.3),transparent 60%),var(--g8);overflow:hidden}
+.hstick::before{content:"";position:absolute;inset:0;background:var(--grid);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 35%,#000 25%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 35%,#000 25%,transparent 72%)}
+.hstick>*{position:relative}
 .hero .ht>*{animation:in 1s both}.hero .ht>:nth-child(2){animation-delay:.15s}.hero .ht>:nth-child(3){animation-delay:.3s}
 @keyframes in{from{opacity:0;transform:translateY(28px)}}
 .hero p{max-width:34rem;margin:1.2rem auto 1.6rem;font-size:clamp(1.1rem,2vw,1.3rem);color:#cdd8d9}
 .scene{perspective:1500px;width:min(920px,100%);margin:2.5rem auto 0}
 .rig{position:relative;aspect-ratio:16/9;transform-style:preserve-3d;will-change:transform}
 .l{position:absolute}
-.main{inset:0;border-radius:24px;box-shadow:0 50px 100px #000a,0 0 0 1px #ffffff26}
+.main{inset:0;width:100%;height:100%;object-fit:cover;background:#000;border-radius:24px;box-shadow:0 50px 100px #000a,0 0 0 1px #ffffff26}
 .chip{padding:.7rem 1rem;border-radius:14px;background:rgba(27,30,33,.82);backdrop-filter:blur(14px);box-shadow:0 20px 50px #0009,0 0 0 1px #ffffff2e;text-align:left;font-size:.95rem}
 .chip small{display:block;font:500 .7rem var(--mono);letter-spacing:.08em;color:var(--silver)}
-.c1{left:-4%;top:14%;transform:translateZ(110px)}
-.c2{right:-3%;top:6%;transform:translateZ(170px);display:flex;gap:.6rem;align-items:center}
-.c3{right:6%;bottom:-6%;transform:translateZ(80px);background:var(--tf);color:#06292a;font-weight:600}
+.c1{left:-4%;top:14%;transform:translate3d(calc(var(--e,0)*-45vw),0,calc(110px + var(--e,0)*240px))}
+.c2{right:-3%;top:6%;transform:translate3d(calc(var(--e,0)*45vw),calc(var(--e,0)*-20vh),calc(170px + var(--e,0)*240px));display:flex;gap:.6rem;align-items:center}
+.c3{right:6%;bottom:-6%;transform:translate3d(calc(var(--e,0)*30vw),calc(var(--e,0)*20vh),calc(80px + var(--e,0)*240px));background:var(--tf);color:#06292a;font-weight:600}
 .dot{width:10px;height:10px;border-radius:50%;background:var(--tf);box-shadow:0 0 12px var(--tf);animation:pu 1.6s infinite}
 @keyframes pu{50%{opacity:.35}}
-.by{display:flex;justify-content:center;align-items:center;gap:1.4rem;flex-wrap:wrap;margin-top:5rem;opacity:.9}
+.by{display:flex;justify-content:center;align-items:center;gap:1.4rem;flex-wrap:wrap;margin-top:1.4rem;opacity:.95}
+.fin{margin-top:3rem}.fin .lead{margin-bottom:.4rem;color:#e4ecec}
 .rv{transition:opacity .9s,transform .9s}
 .js .rv:not(.in){opacity:0;transform:translateY(30px)}
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:980px;margin:3.5rem auto 0;text-align:left}
@@ -128,6 +130,12 @@ footer{background:var(--g9);color:var(--silver);padding:2.5rem 0;font-size:.82re
 footer .wrap{display:flex;flex-wrap:wrap;gap:1.2rem 3rem;align-items:center;justify-content:space-between}
 footer p{max-width:34rem}
 footer .logo{color:var(--mist)}
+@media(min-width:821px) and (prefers-reduced-motion:no-preference){
+.hero{height:230vh}
+.hstick{position:sticky;top:0;height:100svh}
+.hstick>.scene{position:absolute;left:50%;top:50%;margin:0;width:min(920px,86vw);transform:translate(-50%,-50%) translateY(52vh)}
+.hstick>.fin{position:absolute;inset:auto 0 0;margin:0;padding:7rem 1.25rem 2.5rem;background:linear-gradient(transparent,rgba(17,19,21,.9));opacity:0;z-index:5}
+}
 @media(max-width:820px){nav ul{display:none}nav .in{justify-content:center}.vs,.team,.cols{grid-template-columns:1fr}.person{flex-direction:column;text-align:center}.lnk{display:block;margin:1.2rem 0 0}.bom li{grid-template-columns:2.5rem 1fr}.bom li p{grid-column:2}.stick{grid-template-columns:1fr;grid-template-rows:44svh auto;align-content:end;padding-top:48px;padding-bottom:2rem;gap:0}.exs{order:-1}.grp{width:58vw}.stick h2{font-size:2rem;margin-bottom:.6rem}.exl li{padding:.5rem 0}.exl li span{display:none}.exl li.on span{display:block}.c1{left:0}.c2{right:0}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
@@ -138,24 +146,25 @@ footer .logo{color:var(--mist)}
 <ul><li><a href="#problema">Il problema</a></li><li><a href="#risultato">Il risultato</a></li><li><a href="#esploso">Il viaggio</a></li><li><a href="#mgo">M.G.O.</a></li><li><a href="#team">Chi siamo</a></li></ul>
 </div></nav>
 
-<header class="hero">
+<header class="hero"><div class="hstick">
 <div class="ht">
 <h1>Ogni ordine alla macchina giusta.</h1>
 <p>OPS, Officina Production System, porta gli ordini dall’ufficio all’officina di M.G.O. s.r.l. e li mostra su uno schermo, senza carta.</p>
 <div><a class="btn" href="#esploso">Guarda come funziona</a><a class="lnk" href="#team">Chi siamo ›</a></div>
 </div>
 <div class="scene" id="scene"><div class="rig" id="rig">
-<div class="l main ph" style="--img:url(img/hero.jpg)" role="img" aria-label="Fresatura CNC di un pezzo in alluminio"></div>
+<video id="vid" class="l main" autoplay muted loop playsinline preload="metadata" poster="img/hero.jpg" aria-label="Una macchina CNC che lavora un pezzo con il refrigerante"><source src="img/lavorazione.mp4" type="video/mp4"></video>
 <div class="l chip c1"><small>ORDINE #2418</small>Flange inox, 50 pz</div>
 <div class="l chip c2"><i class="dot"></i>Macchina 2 in lavorazione</div>
 <div class="l chip c3">Aggiornato ora</div>
 </div></div>
+<div class="fin"><p class="lead">Una macchina che lavora, un ordine che arriva.</p>
 <div class="by">
 <span class="logo"><img src="img/logo-ops-light.png" alt="OPS"></span>
 <span>per</span>
 <span class="logo mgo" data-logo="img/logo-mgo.png" data-alt="M.G.O. s.r.l.">M.G.O.<small>s.r.l.<br>Gandino</small></span>
-</div>
-</header>
+</div></div>
+</div></header>
 
 <section class="lt" id="problema"><div class="wrap">
 <h2 class="rv">Oggi un ordine fa il giro a piedi.</h2>
@@ -250,21 +259,39 @@ if(!rm){setInterval(tick,1000);setInterval(()=>{const i=Math.random()*3|0;q[i].s
 
 // Effetti 3D legati a mouse e scorrimento
 const sc=$('#scene'),rig=$('#rig'),tv=$('#tv'),ex=$('#esploso'),grp=$('.grp'),pl=$$('.plane'),li=$$('.exl li'),band=$('#mgo'),sp=$$('.sp'),K=[-170,110,-120];
+const hero=$('.hero'),ht=$('.ht'),fin=$('.fin'),vid=$('#vid'),ch=$$('.chip'),W=[[-.2,.38],[.32,.72],[.66,1.2]];
+const mqD=matchMedia('(min-width:821px) and (prefers-reduced-motion:no-preference)');
+// il video parte solo se serve: si ferma fuori schermo e con "riduci movimento"
+if(rm){vid.pause();vid.removeAttribute('autoplay')}
+else new IntersectionObserver(([x])=>x.isIntersecting?vid.play().catch(()=>{}):vid.pause()).observe(hero);
 let tx=0,ty=0,cx=0,cy=0;
 sc.addEventListener('pointermove',e=>{const b=sc.getBoundingClientRect();tx=((e.clientX-b.left)/b.width-.5)*2;ty=((e.clientY-b.top)/b.height-.5)*2});
 sc.addEventListener('pointerleave',()=>{tx=ty=0});
 function frame(){
  const t=performance.now()/1000;cx+=(tx-cx)*.07;cy+=(ty-cy)*.07;
- const sw=rm?0:1;
- rig.style.transform=`rotateX(${16-cy*8+Math.min(scrollY/45,12)+Math.sin(t*.8)*2*sw}deg) rotateY(${-18+cx*14+Math.cos(t*.6)*3*sw}deg)`;
- // schermo che si raddrizza
+ const sw=rm?0:1;let e=0;
+ // apertura: la scheda si raddrizza e si ingrandisce fino a riempire lo schermo
+ if(mqD.matches){
+  const r=hero.getBoundingClientRect();e=clamp(clamp(-r.top/(hero.offsetHeight-innerHeight))/.7);
+  const cw=sc.offsetWidth,S=Math.max(innerWidth/cw,innerHeight/(cw*9/16))*1.01;
+  sc.style.transform=`translate(-50%,-50%) translateY(${(1-e)*innerHeight*.52}px) scale(${1+e*(S-1)})`;
+  ht.style.transform=`translateY(${-e*140}px)`;ht.style.opacity=clamp(1-e*2.4);ht.style.pointerEvents=e>.4?'none':'';
+  fin.style.opacity=clamp((e-.85)/.15)
+ }else{sc.style.transform=ht.style.transform=ht.style.opacity=ht.style.pointerEvents=fin.style.opacity=''}
+ sc.style.setProperty('--e',e);
+ const k=1-e;
+ rig.style.transform=`rotateX(${(16-cy*8+Math.sin(t*.8)*2*sw)*k}deg) rotateY(${(-18+cx*14+Math.cos(t*.6)*3*sw)*k}deg)`;
+ // etichette che seguono il video: ordine, macchina in lavorazione, aggiornamento
+ const ph=vid.duration&&!vid.paused?vid.currentTime/vid.duration:-1;
+ ch.forEach((c,i)=>{const w=ph<0?1:clamp(Math.min((ph-W[i][0])/.07,(W[i][1]-ph)/.07));c.style.opacity=w*clamp(1-e*1.5)});
+ // schermo TV che si raddrizza
  let r=tv.getBoundingClientRect(),a=clamp((r.top-innerHeight*.2)/(innerHeight*.6));
  tv.style.transform=`perspective(1400px) rotateX(${a*32}deg) scale(${1-a*.08})`;
  // vista esplosa
- r=ex.getBoundingClientRect();const p=clamp(-r.top/(r.height-innerHeight)),e=clamp(p/.35),act=clamp(Math.floor(clamp((p-.12)/.86)*4),0,3);
- grp.style.transform=`rotateX(${6+52*e}deg) rotateZ(${-4-30*e}deg)`;
- pl.forEach((x,i)=>{x.style.transform=`translateZ(${(i-1.5)*(6+(innerWidth<820?62:150)*e)+(e>.5?(i==act?34:i>act?85:0):0)}px)`;x.classList.toggle('on',i==act&&e>.5)});
- li.forEach((x,i)=>x.classList.toggle('on',i==act&&e>.3));
+ r=ex.getBoundingClientRect();const p=clamp(-r.top/(r.height-innerHeight)),ee=clamp(p/.35),act=clamp(Math.floor(clamp((p-.12)/.86)*4),0,3);
+ grp.style.transform=`rotateX(${6+52*ee}deg) rotateZ(${-4-30*ee}deg)`;
+ pl.forEach((x,i)=>{x.style.transform=`translateZ(${(i-1.5)*(6+(innerWidth<820?62:150)*ee)+(ee>.5?(i==act?34:i>act?85:0):0)}px)`;x.classList.toggle('on',i==act&&ee>.5)});
+ li.forEach((x,i)=>x.classList.toggle('on',i==act&&ee>.3));
  // foto del reparto: tre fasce che si ricompongono
  r=band.getBoundingClientRect();const d=(clamp((innerHeight-r.top)/(innerHeight+r.height))-.5)*2;
  sp.forEach((x,i)=>x.style.transform=`translateY(${(rm?0:d*K[i])}px)`);
